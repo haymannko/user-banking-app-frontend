@@ -98,7 +98,14 @@ resource "aws_s3_bucket_policy" "public_read" {
       }
     ]
   })
+
+  depends_on = [
+    aws_s3_bucket_public_access_block.example,
+    aws_s3_bucket_acl.example,
+    aws_s3_bucket_ownership_controls.example
+  ]
 }
+
 
 
 output "bucket_website_endpoint" {
