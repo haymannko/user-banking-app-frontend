@@ -1,0 +1,1 @@
+import{j as e,a as r}from"./index-CPyi0v15.js";function c({title:s,description:t,className:a}){return e.jsxs("div",{className:r("pb-3 hidden md:block border-b mb-3",a),children:[e.jsx("h1",{className:"font-semibold text-2xl text-black-pearl-700",children:s}),e.jsx("p",{className:"text-sm text-black-pearl-500",children:t})]})}export{c as S};
