@@ -19,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: terraform/
+        working-directory: user-banking-app-frontend-test/terraform
 
     steps:
       - name: Checkout code
