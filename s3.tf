@@ -107,3 +107,4 @@ output "bucket_website_endpoint" {
 
 output "bucket_website_domain" {
   value = aws_s3_bucket_website_configuration.example.website_domain
+}
