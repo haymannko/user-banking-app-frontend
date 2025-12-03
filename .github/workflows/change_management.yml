@@ -1,9 +1,17 @@
 
-name: Deployment workflow for Food Ordering System
+name: Deployment static website to S3
 
 on:
-  #Run Manual
-  workflow_call:
+  push:
+    branches:
+      - 'ft/*'
+      - 'Comflict/Check'
+      - 'development'
+      - 'update/*'
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -17,8 +25,17 @@ jobs:
         with:
           terraform_version: '1.14.0'
 
+      - name: Terraform Format
+        run: terraform fmt
+
       - name: Initialize Terraform
         run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan
 
       - name: Apply Terraform configuration
         run: terraform apply -auto-approve
