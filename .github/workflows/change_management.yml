@@ -1,0 +1,24 @@
+
+name: Deployment workflow for Food Ordering System
+
+on:
+  #Run Manual
+  workflow_call:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.14.0'
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Apply Terraform configuration
+        run: terraform apply -auto-approve
