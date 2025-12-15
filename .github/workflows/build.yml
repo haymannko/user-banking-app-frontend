@@ -114,4 +114,10 @@ jobs:
       - name: Push Docker image to ECR
         run: docker push ${{ steps.build-image.outputs.image_uri }}
 
+  deploy:
+    needs: build-test
+    uses: ./.github/workflows/terraform-cd.yml
+    with:
+      environment: dev
+    secrets: inherit
 
