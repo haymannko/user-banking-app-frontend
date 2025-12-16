@@ -97,8 +97,8 @@ jobs:
       - name: Build Docker image
         id: build-image
         env:
-          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+          ECR_REGISTRY: 517882049220.dkr.ecr.us-east-1.amazonaws.com
+          ECR_REPOSITORY: userbanking/frontend11
           IMAGE_TAG: ${{ github.sha }}
         run: |
           IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
